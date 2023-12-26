@@ -1,0 +1,25 @@
+.Main{
+    /* display: flex;
+    justify-content: space-between;
+    align-items:center;
+    flex-direction: row; */
+    width: 100%;
+    margin: auto;
+}
+.DivLeft{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 2%;
+    width: 30%;
+    padding: 2%;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.DivRight{
+    width: 50%;
+    margin: 1%;
+    text-align: center;
+    padding: 1%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}

@@ -1,0 +1,21 @@
+.Main{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: row;
+    width: 100%;
+    margin: auto;
+}
+/* .DivLeft{
+    margin: 10%;
+    width: 50%;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+} */
+.DivRight{
+    width: 30%;
+    margin: 5%;
+    text-align: center;
+    padding: 1%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
