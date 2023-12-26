@@ -20,7 +20,7 @@ const NavData = () => {
         { icon: <AttachMoneyIcon />, label: "Payments", Path: "" },
         { icon: <EngineeringIcon />, label: "Workers", Path: "" },
       ],
-      user: [],
+      user: [{},{}],
     },
   ];
 
