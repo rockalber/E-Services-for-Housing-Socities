@@ -15,7 +15,6 @@ const NavData = () => {
           label: "Services",
           Path: "services",
         },
-        { icon: <PermMedia />, label: "Details", Path: "" },
         { icon: <AddTaskIcon />, label: "Approval", Path: "" },
         { icon: <AttachMoneyIcon />, label: "Payments", Path: "" },
         { icon: <EngineeringIcon />, label: "Workers", Path: "" },

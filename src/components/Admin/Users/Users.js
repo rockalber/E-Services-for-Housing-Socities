@@ -11,7 +11,7 @@ import { Typography } from "@mui/material";
 const Users = () => {
   return (
     <>
-    <Typography variant="h4" component="h2" sx={{margin:"1%"}}>Users List</Typography>
+    <Typography variant="h4" sx={{margin:"1%"}}>Users List</Typography>
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>

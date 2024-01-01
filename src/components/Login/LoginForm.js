@@ -1,8 +1,6 @@
-"use client";
-import React from "react";
+import React, { useState } from "react";
 import LoginIcon from "@mui/icons-material/Login";
 import {
-  Avatar,
   Stack,
   Button,
   FormControl,
@@ -15,6 +13,7 @@ import {
 } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import { styled } from "@mui/material/styles";
+import { Link } from "react-router-dom";
 
 const MainContainer = styled("main")({
   width: "100%",
@@ -40,7 +39,33 @@ const SubmitButton = styled(Button)({
   marginTop: "24px",
 });
 
-function SignIn() {
+function LoginForm(props) {
+  const [EmailPass, setEmailPass] = useState({
+    Email: "",
+    Pass: "",
+  });
+
+  const EmailHandler = (e) => {
+    setEmailPass((prev) => {
+      return { ...prev, Email: e.target.value };
+    });
+  };
+  const PasswordHandler = (e) => {
+    setEmailPass((prev) => {
+      return { ...prev, Pass: e.target.value };
+    });
+  };
+
+  const SubmitHandler = (e) => {
+    e.preventDefault();
+    console.log(EmailPass);
+    if (EmailPass.Email == "admin" || EmailPass.Pass == "pass") {
+      props.setLogin(false)
+
+     
+    }
+  };
+
   return (
     <MainContainer>
       <CssBaseline />
@@ -51,34 +76,37 @@ function SignIn() {
         <Typography component="h1" variant="h5">
           Login your account
         </Typography>
-        <FormContainer onSubmit={() => {}}>
+        <FormContainer method="GET" onSubmit={SubmitHandler}>
           <FormControl margin="normal" required fullWidth>
             <InputLabel htmlFor="email">Email Address</InputLabel>
             <Input
               id="email"
               name="email"
-              value={""}
+              value={EmailPass.Email}
               type="text"
               autoComplete="email"
               autoFocus
-              onChange={() => {}}
+              onChange={EmailHandler}
             />
           </FormControl>
-          <FormControl margin="" required fullWidth>
+          <FormControl required fullWidth>
             <InputLabel htmlFor="password">Password</InputLabel>
             <Input
               name="password"
               type="password"
               id="password"
-              value={""}
+              value={EmailPass.Pass}
               autoComplete="current-password"
-              onChange={() => {}}
+              onChange={PasswordHandler}
             />
           </FormControl>
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
           />
+          <br/>
+          <Typography variant="p" fontFamily="Arial">Don't have account?<br/>
+          Please <Link to={"/signup"}><span style={{color:"blue", textDecoration:"none"}}>Sign Up </span></Link></Typography>
           <SubmitButton
             type="submit"
             fullWidth
@@ -94,4 +122,4 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+export default LoginForm;

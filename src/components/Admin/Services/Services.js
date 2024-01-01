@@ -7,13 +7,14 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import DeleteIcon from "@mui/icons-material/Delete";
-import EditIcon from '@mui/icons-material/Edit';
+import EditIcon from "@mui/icons-material/Edit";
 import {
   TextField,
   Typography,
   Button,
   Stack,
   IconButton,
+  Grid,
 } from "@mui/material";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import "./services.css";
@@ -30,15 +31,15 @@ const Services = () => {
     setServiceData((prevState) => [...prevState, Services]);
   };
 
+
   return (
     <>
-      <Typography variant="h4" component="h2" sx={{ margin: "2%" }}>
+      <Typography variant="h4" component="h2" sx={{ margin: "2%" }} xs={12}>
         Services
       </Typography>
       <div className="Main">
-
         <div className="DivLeft">
-          <Stack direction="column" spacing={2}>
+          <Stack direction="column" spacing={2} sx={{maxWidh:"20%"}}>
             <Typography variant="h6">Add Service</Typography>
             <TextField
               id="outlined-basic"
@@ -97,7 +98,7 @@ const Services = () => {
           <Typography variant="h6">Available Services</Typography>
           <Stack
             direction={{ xs: "column", sm: "column" }}
-            spacing={{ xs: 1, sm: 2, md: 4 }}
+            spacing={{ xs: 2, sm: 2, md: 4 }}
           >
             <TableContainer>
               <Table>
@@ -112,9 +113,16 @@ const Services = () => {
                 </TableHead>
                 <TableBody>
                   {serviceData.map((item, index) => {
+                    const handleDeleteClick = () => {
+                      const updatedServiceData = [...serviceData];
+                      console.log(updatedServiceData)
+                      updatedServiceData.splice(index, 1);
+                      setServiceData(updatedServiceData);
+                      console.log(updatedServiceData)
+                    };
                     return (
                       <TableRow
-                      sx={{
+                        sx={{
                           "&:last-child td, &:last-child th": { border: 0 },
                         }}
                         key={index}
@@ -127,16 +135,13 @@ const Services = () => {
                           {item.price + ".Rs"}
                         </TableCell>
                         <TableCell align="center">
-                          <IconButton
-                            color="success"
-                            aria-label="edit"
-                          >
-                            <EditIcon/>
+                          <IconButton color="success" aria-label="edit">
+                            <EditIcon />
                           </IconButton>
                         </TableCell>
                         <TableCell align="center">
                           <IconButton aria-label="delete" color="error">
-                            <DeleteIcon />
+                            <DeleteIcon onClick={handleDeleteClick} />
                           </IconButton>
                         </TableCell>
                       </TableRow>

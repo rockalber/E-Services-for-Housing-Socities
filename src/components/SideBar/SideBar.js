@@ -39,7 +39,8 @@ export default function SideBar(props) {
             display: "flex",
             justifyContent: "space-between",
             width: "16%",
-            height: "100vh",
+            height: "100%",
+            minHeight: "100vh"
           }}
         >
           <ThemeProvider
